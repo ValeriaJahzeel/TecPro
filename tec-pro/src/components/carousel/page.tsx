@@ -64,22 +64,23 @@ const Carousel = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   }, [slides.length]);
 
+  // Auto-advance slides
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // tiempo que pasa para cambiar el slide
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const goToSlide = (index) => {    
+  const goToSlide = (index) => {
     setCurrentSlide(index);
   };
 
   return (
     <div className="relative w-full max-w-6xl mx-auto py-12">
-      {/* Container with fixed height to prevent layout shifts */}
-      <div className="relative min-h-[600px]">
+      {/* Main container */}
+      <div className="relative pb-4">
         {slides.map((slide, index) => (
           <div 
             key={index}
@@ -89,22 +90,28 @@ const Carousel = () => {
                 : "opacity-0 absolute top-0 left-0 right-0"
             }`}
           >
+            {/* Card Layout */}
             <div className="flex flex-col md:flex-row items-center gap-8 px-4">
-              <div className="w-full md:w-1/2">
+              {/* Left side - Image */}
+              <div className="w-full md:w-1/2 ">
                 <img 
-                  src={slide.image || "/api/placeholder/400/320"} // Fallback to placeholder if no image
+                  src={slide.image || "/api/placeholder/400/320"} 
                   alt={slide.title}
-                  className="rounded-lg shadow-md w-full h-64 md:h-80 object-cover"
+                  className="w-full h-80 object-cover rounded-lg"
                 />
               </div>
+              
+              {/* Right side - Content */}
               <div className="w-full md:w-1/2">
                 <h2 className="text-3xl font-bold text-center mb-8">{slide.title}</h2>
                 <ul className="space-y-6">
                   {slide.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <div className="min-w-4 mt-1">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      {/* Blue dot bullet */}
+                      <div className="min-w-4 mt-1.5">
+                        <div className="w-3 h-3 bg-azul rounded-full"></div>
                       </div>
+                      {/* Feature text */}
                       <div>
                         <span className="font-semibold">{feature.title}</span>{" "}
                         {feature.description}
@@ -118,15 +125,15 @@ const Carousel = () => {
         ))}
       </div>
 
-      {/* Navigation dots */}
-      <div className="flex justify-center space-x-2 ">
+      {/* Navigation dots - Reduced space above */}
+      <div className="flex justify-center space-x-3 mt-10">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
               index === currentSlide 
-                ? "bg-azul scale-110" 
+                ? "bg-blue-600" 
                 : "bg-gray-300 hover:bg-gray-400"
             }`}
             aria-label={`Go to slide ${index + 1}`}
