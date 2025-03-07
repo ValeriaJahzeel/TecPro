@@ -1,0 +1,140 @@
+import { useState, useEffect, useCallback, SetStateAction } from 'react';
+
+const Carousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    {
+      title: "Diseño 3D",
+      features: [
+        {
+          title: "Modelado 3D personalizado:",
+          description: "Nuestro equipo de diseñadores expertos te ayudará a crear modelos 3D únicos y optimizados para la impresión 3D"
+        },
+        {
+          title: "Optimización de diseños:",
+          description: "Adaptamos tus modelos 3D para garantizar la mejor calidad de impresión, minimizando el uso de material y maximizando la resistencia de las piezas"
+        },
+        {
+          title: "Diseño para fabricación aditiva:",
+          description: "Diseñamos piezas específicamente para la impresión 3D, aprovechando las ventajas de esta tecnología"
+        }
+      ],
+      image: "img_disenio3D.png" 
+    },
+    {
+      title: "Impresión 3D",
+      features: [
+        {
+          title: "Prototipado rápido:",
+          description: "Convierte tus diseños en prototipos tangibles de forma rápida y eficiente"
+        },
+        {
+          title: "Producción bajo demanda:",
+          description: "Fabricamos piezas personalizadas y series cortas según tus especificaciones"
+        },
+        {
+          title: "Materiales de alta calidad:",
+          description: "Trabajamos con una amplia gama de materiales de impresión 3D"
+        }
+      ],
+      image: "img_impresion3D.png"
+    },
+    {
+      title: "Escaneo 3D",
+      features: [
+        {
+          title: "Digitalización de objetos:",
+          description: "Capturamos la forma y dimensiones de objetos físicos con alta precisión, convirtiéndolos en modelos digitales 3D listos para su impresión o modificación."
+        },
+        {
+          title: "Ingeniería inversa:",
+          description: "Recreamos modelos 3D a partir de piezas existentes, permitiéndote analizar, modificar o replicar objetos sin necesidad de planos originales."
+        },
+        {
+          title: "Control de calidad:",
+          description: "Utilizamos el escaneo 3D para comparar piezas impresas con sus modelos digitales, asegurando la precisión dimensional y la calidad de fabricación."
+        }
+      ],
+      image: "img_escaneo3D.jpg" 
+    }
+  ];
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  }, [slides.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // tiempo que pasa para cambiar el slide
+
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  const goToSlide = (index) => {    
+    setCurrentSlide(index);
+  };
+
+  return (
+    <div className="relative w-full max-w-6xl mx-auto py-12">
+      {/* Container with fixed height to prevent layout shifts */}
+      <div className="relative min-h-[600px]">
+        {slides.map((slide, index) => (
+          <div 
+            key={index}
+            className={`transition-all duration-500 ${
+              index === currentSlide 
+                ? "opacity-100 relative" 
+                : "opacity-0 absolute top-0 left-0 right-0"
+            }`}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-8 px-4">
+              <div className="w-full md:w-1/2">
+                <img 
+                  src={slide.image || "/api/placeholder/400/320"} // Fallback to placeholder if no image
+                  alt={slide.title}
+                  className="rounded-lg shadow-md w-full h-64 md:h-80 object-cover"
+                />
+              </div>
+              <div className="w-full md:w-1/2">
+                <h2 className="text-3xl font-bold text-center mb-8">{slide.title}</h2>
+                <ul className="space-y-6">
+                  {slide.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <div className="min-w-4 mt-1">
+                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <div>
+                        <span className="font-semibold">{feature.title}</span>{" "}
+                        {feature.description}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation dots */}
+      <div className="flex justify-center space-x-2 ">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentSlide 
+                ? "bg-azul scale-110" 
+                : "bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;
