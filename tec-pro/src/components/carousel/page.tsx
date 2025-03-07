@@ -12,10 +12,6 @@ const Carousel = () => {
           description: "Nuestro equipo de diseñadores expertos te ayudará a crear modelos 3D únicos y optimizados para la impresión 3D"
         },
         {
-          title: "Optimización de diseños:",
-          description: "Adaptamos tus modelos 3D para garantizar la mejor calidad de impresión, minimizando el uso de material y maximizando la resistencia de las piezas"
-        },
-        {
           title: "Diseño para fabricación aditiva:",
           description: "Diseñamos piezas específicamente para la impresión 3D, aprovechando las ventajas de esta tecnología"
         }
@@ -45,15 +41,11 @@ const Carousel = () => {
       features: [
         {
           title: "Digitalización de objetos:",
-          description: "Capturamos la forma y dimensiones de objetos físicos con alta precisión, convirtiéndolos en modelos digitales 3D listos para su impresión o modificación."
+          description: "Capturamos la forma y dimensiones de objetos físicos con alta precisión"
         },
         {
           title: "Ingeniería inversa:",
-          description: "Recreamos modelos 3D a partir de piezas existentes, permitiéndote analizar, modificar o replicar objetos sin necesidad de planos originales."
-        },
-        {
-          title: "Control de calidad:",
-          description: "Utilizamos el escaneo 3D para comparar piezas impresas con sus modelos digitales, asegurando la precisión dimensional y la calidad de fabricación."
+          description: "Recreamos modelos 3D a partir de piezas existentes"
         }
       ],
       image: "img_escaneo3D.jpg" 
