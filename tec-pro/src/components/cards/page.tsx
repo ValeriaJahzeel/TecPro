@@ -117,8 +117,8 @@ export default function Cards() {
       image: "img_disenio3D.png"
     },
     {
-      title: "PC",
-      subtitle: "Policarbonato",
+      title: "Policarbonato",
+      subtitle: "",
       features: [
         {
           title: "Caracteristicas:",
@@ -139,40 +139,45 @@ export default function Cards() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
-      {cardList.map((card, id) => (
-        <div
-          key={id}
-          className="group relative cursor-pointer bg-blue-400 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:z-10 shadow-lg"
-        >
-          {/* Estado normal - Solo muestra el título y subtítulo */}
-          <div className="h-48 flex flex-col items-center justify-center p-4 transition-all duration-300">
-            <h2 className="text-xl font-bold text-center mb-2">{card.title}</h2>
-            <p className="text-sm text-center">{card.subtitle}</p>
-          </div>
+  {cardList.map((card, id) => (
+    <div
+      key={id}
+      className="group relative cursor-pointer rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:z-10 shadow-lg"
+      style={{ height: "280px" }} // Altura fija para todas las cards
+    >
+      {/* Imagen de fondo (visible en estado normal) */}
+      <div 
+        className="absolute inset-0 bg-center bg-cover bg-black bg-opacity-80 transition-opacity duration-300"
+        style={{ 
+          backgroundImage: `url(${card.image})`,
+        }}
+      />
+      
+      {/* Capa semi-transparente para mejorar legibilidad del texto */}
+      {/* <div className="absolute inset-0 bg-black bg-opacity-80" /> */}
+      
+      {/* Estado normal - Muestra el título y subtítulo sobre la imagen */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
+        <h2 className="text-xl font-bold text-center mb-2 text-white">{card.title}</h2>
+        <p className="text-sm text-center text-white">{card.subtitle}</p>
+      </div>
 
-          {/* Estado hover - Muestra información detallada y la imagen */}
-          <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 overflow-y-auto">
-            <div className="flex flex-col h-full">
-              <h2 className="text-xl font-bold text-center mb-2">{card.title}</h2>
-              
-              {/* Mostrar imagen en hover */}
-              <div className="flex justify-center mb-4">
-                <img src={card.image} alt={card.title} className="h-24 w-auto object-contain" />
-              </div>
-              
-              {/* Mostrar características en hover */}
-              <ul className="space-y-2 text-sm">
-                {card.features.map((feature, i) => (
-                  <li key={i} className="text-left">
-                    <span className="font-semibold">{feature.title}</span>{" "}
-                    {feature.description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))}
+      {/* Estado hover - Muestra información detallada */}
+      <div className="absolute inset-0 bg-azul opacity-0 group-hover:opacity-95 transition-opacity duration-300 p-6 flex flex-col justify-center z-20">
+        <h2 className="text-lg font-bold text-center mb-4 text-white">{card.title}</h2>
+        
+        {/* Mostrar características en hover */}
+        <ul className="space-y-2 text-sm text-white">
+          {card.features.map((feature, i) => (
+            <li key={i} className="text-left">
+              <span className="font-semibold">{feature.title}:</span>{" "}
+              {feature.description}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
+  ))}
+</div>
   );
 }

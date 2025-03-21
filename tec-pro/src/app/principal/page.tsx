@@ -24,9 +24,6 @@ export const Principal = () => {
                 </div>
                 
             </div>      
-            
-           
-            
         </div>
     )
 }

@@ -3,12 +3,18 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-gris: #121212;
   --color-azul: #3498DB; 
+  --color-verde-oscuro: #00431f;
+  --color-verde-medio: #006930;
+  --color-azul-oscuro: #001781;
+  --color-azul-medio: #0026b3;
+  --color-whatsapp: #25D366;
+
   --color-naranja: #E67E22;
   --color-amarillo-dorado: #F4A828;
   --color-verde: #58B947;
   --color-rojo-anaranjado: #D35400;
-  --color-whatsapp: #25D366;
 
 }
 
