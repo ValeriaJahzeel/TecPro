@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <header className="w-full">
       {/* Top Bar */}
-      <div className="bg-azul text-black text-sm flex justify-between items-center px-15 pt-4">
+      <div className="bg-azul dark:bg-gray text-black dark:text-verde-medio text-sm flex justify-between items-center px-15 pt-4">
         <div className="flex items-center gap-4">
           <IconMail/>tecprocdmx@gmail.com
           <IconBrandWhatsapp/>246 251 4265 
