@@ -1,13 +1,13 @@
-import { IconPencil } from '@tabler/icons-react';
-import { Button } from './button';
+"use client";
+import Link from "next/link";
 
 export const BtnCotizar = () => {
   return (
-    <Button 
-      variant="cotizacion" 
-      icon={<IconPencil size={20} />}
+    <Link 
+      href="#cotizaciones"
+      className="btn btn-primary"
     >
-      Cotiza tu modelo 3D en línea
-    </Button>
+      Solicitar cotización
+    </Link>
   );
 };

@@ -1,13 +1,18 @@
-import { IconBrandWhatsapp } from '@tabler/icons-react';
-import { Button } from './button';
+"use client";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 export const BtnWhatsapp = () => {
+  const message = encodeURIComponent("Hola, estoy interesado en sus servicios de impresión 3D.");
+  
   return (
-    <Button 
-      variant="whatsapp" 
-      icon={<IconBrandWhatsapp size={20} />}
+    <a 
+      href={`https://wa.me/2462514265?text=${message}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn btn-whatsapp"
     >
-      Contáctanos
-    </Button>
+      <IconBrandWhatsapp size={20} className="mr-2" />
+      Contactar por WhatsApp
+    </a>
   );
 };

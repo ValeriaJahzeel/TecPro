@@ -1,8 +1,9 @@
-@import "tailwindcss";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  /* Colors */
   --color-gris: #333333;
   --color-azul: #3498DB; 
   --color-verde-oscuro: #00431f;
@@ -10,15 +11,16 @@
   --color-azul-oscuro: #001781;
   --color-azul-medio: #0026b3;
   --color-whatsapp: #25D366;
-
   --color-naranja: #E67E22;
   --color-amarillo-dorado: #F4A828;
   --color-verde: #58B947;
   --color-rojo-anaranjado: #D35400;
 
-}
-
-:root {
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Theme */
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -33,5 +35,56 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Roboto, Helvetica, sans-serif;
+  font-family: var(--font-sans), Roboto, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Custom button styles */
+.btn {
+  @apply font-medium px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center justify-center text-center;
+}
+
+.btn-primary {
+  @apply bg-azul-medio text-white hover:bg-azul-oscuro;
+}
+
+.btn-secondary {
+  @apply bg-verde-medio text-white hover:bg-verde-oscuro;
+}
+
+.btn-whatsapp {
+  @apply bg-whatsapp text-white hover:bg-opacity-90;
+}
+
+/* Section styles */
+.section {
+  @apply py-16 px-4 md:px-8 lg:px-12;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-20 h-1 bg-azul-medio mt-2;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-lg transform -translate-y-1;
 }

@@ -1,28 +1,29 @@
-"use client"
+"use client";
 import { BtnCotizar } from "@/components/buttons/cotizar_btn";
 import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
-
 export const ListoParaEmpezar = () => {
-    return (
-        <main className="bg-white text-black p-12 text-center ">
-            
-            <h1 className="text-3xl font-bold pb-8">¿Listo para empezar?</h1>
+  return (
+    <section id="listo-para-empezar" className="bg-azul-medio text-white py-16 px-4 md:px-12">
+      <div className="container mx-auto text-center max-w-3xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          ¿Listo para empezar?
+        </h2>
 
-            <div className=" pt-4 text-lg pb-8">
-                Sit tienes alguna pregunta o deseas solicitar un presupuesto, no dudes en contactarnos.
+        <p className="text-lg mb-12">
+          Si tienes alguna pregunta o deseas solicitar un presupuesto, no dudes en contactarnos.
+          <br />
+          <br />
+          ¡Estaremos encantados de ayudarte!
+        </p>
 
-                <br />
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <BtnCotizar />
+          <BtnWhatsapp />
+        </div>
+      </div>
+    </section>
+  );
+};
 
-                ¡Estaremos encantados de ayudarte!
-            </div>     
-
-            <div className="flex justify-center gap-50 pt-8">
-                    <BtnCotizar/>
-                    <BtnWhatsapp/>
-            </div>
-            
-        </main>
-    )
- 
- }
+export default ListoParaEmpezar;

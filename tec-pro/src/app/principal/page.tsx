@@ -1,30 +1,45 @@
 "use client";
-import {BtnCotizar} from "@/components/buttons/cotizar_btn";
-import {BtnWhatsapp} from "@/components/buttons/whatsapp_btn";
+import Image from "next/image";
+import Link from "next/link";
+import { BtnCotizar } from "@/components/buttons/cotizar_btn";
+import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
 export const Principal = () => {
+  return (
+    <section id="principal" className="bg-white py-12 md:py-16 lg:py-20 px-4 md:px-12">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="order-2 md:order-1 flex justify-center md:justify-start">
+            <div className="relative w-full max-w-lg h-64 md:h-96">
+              <Image
+                src="/impresora-3d.png"
+                alt="Impresora 3D TecPro"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
 
-    return (
-        <div className="bg-white flex justify-center grid grid-cols-2 p-12 text-black">
-            
-            {/* Bueno, aun hay que probar con las imágenes, maybe deberia hacer un programa que vectorize imagenes */}
-            <img src="descarga.png" alt="impresora 3D" /> 
+          <div className="order-1 md:order-2 flex flex-col">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gris mb-6">
+              Servicio de impresión 3D a tu alcance
+            </h1>
 
-            <div className="pr-8 pt-25">
-                <h1 className="text-3xl font-bold ">Servicio de impresión 3D a tu alcance</h1>
+            <p className="text-gris text-lg mb-8">
+              Imprime con nosotros tus prototipos artísticos e industriales, maquetas arquitectónicas, 
+              refacciones plásticas automotrices. También contamos con servicio de diseño orgánico y paramétrico.
+            </p>
 
-                <div className="text-justify pt-4 text-lg">
-                    Imprime con nosotros tus prototipos artísticos e industriales, maquetas arquitectónicas, 
-                    refacciones plásticas automotrices, también contamos con servicio de diseño orgánico y paramétrico.
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-8">
-                    <BtnCotizar/>
-                    <BtnWhatsapp/>
-                </div>
-                
-            </div>      
+            <div className="flex flex-col sm:flex-row gap-4">
+              <BtnCotizar />
+              <BtnWhatsapp />
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};
 
+export default Principal;
