@@ -3,7 +3,7 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-gris: #121212;
+  --color-gris: #333333;
   --color-azul: #3498DB; 
   --color-verde-oscuro: #00431f;
   --color-verde-medio: #006930;

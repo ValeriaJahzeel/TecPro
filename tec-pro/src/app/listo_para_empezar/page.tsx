@@ -1,6 +1,6 @@
 "use client"
-import {Btn_cotizacion} from "@/components/btn_cotizacion/page";
-import {Btn_whatsapp} from "@/components/btn_whatsapp/page";
+import { BtnCotizar } from "@/components/buttons/cotizar_btn";
+import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
 
 export const ListoParaEmpezar = () => {
@@ -18,8 +18,8 @@ export const ListoParaEmpezar = () => {
             </div>     
 
             <div className="flex justify-center gap-50 pt-8">
-                    <Btn_cotizacion/>
-                    <Btn_whatsapp/>
+                    <BtnCotizar/>
+                    <BtnWhatsapp/>
             </div>
             
         </main>

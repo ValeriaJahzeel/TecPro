@@ -1,11 +1,11 @@
 "use client";
-import {Btn_cotizacion} from "@/components/btn_cotizacion/page";
-import {Btn_whatsapp} from "@/components/btn_whatsapp/page";
+import {BtnCotizar} from "@/components/buttons/cotizar_btn";
+import {BtnWhatsapp} from "@/components/buttons/whatsapp_btn";
 
 export const Principal = () => {
 
     return (
-        <div className="bg-gradient-to-b from-azul from-80% to-[#848C88] to 30%... flex justify-center grid grid-cols-2 p-12 text-black">
+        <div className="bg-white flex justify-center grid grid-cols-2 p-12 text-black">
             
             {/* Bueno, aun hay que probar con las imágenes, maybe deberia hacer un programa que vectorize imagenes */}
             <img src="descarga.png" alt="impresora 3D" /> 
@@ -19,8 +19,8 @@ export const Principal = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-8">
-                    <Btn_cotizacion/>
-                    <Btn_whatsapp/>
+                    <BtnCotizar/>
+                    <BtnWhatsapp/>
                 </div>
                 
             </div>      

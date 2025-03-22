@@ -1,5 +1,5 @@
 "use client"
-import Carousel from "@/components/carousel/page";
+import Carousel from "@/components/carousel/caroussel";
 
 export const NuestrosServicios = () => {
     return (

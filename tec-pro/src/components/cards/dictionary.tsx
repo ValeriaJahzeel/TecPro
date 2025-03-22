@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Cards } from './cards';
 
-export default function Cards() {
-  const cardList = [
+export default function MaterialesCards() {
+  const materialCards = [
     {
       title: "PLA",
       subtitle: "Plástico Poliláctico",
@@ -118,7 +119,7 @@ export default function Cards() {
     },
     {
       title: "Policarbonato",
-      subtitle: "",
+      subtitle: "Policarbonato Industrial",
       features: [
         {
           title: "Caracteristicas:",
@@ -138,46 +139,19 @@ export default function Cards() {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
-  {cardList.map((card, id) => (
-    <div
-      key={id}
-      className="group relative cursor-pointer rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:z-10 shadow-lg"
-      style={{ height: "280px" }} // Altura fija para todas las cards
-    >
-      {/* Imagen de fondo (visible en estado normal) */}
-      <div 
-        className="absolute inset-0 bg-center bg-cover bg-black bg-opacity-80 transition-opacity duration-300"
-        style={{ 
-          backgroundImage: `url(${card.image})`,
-        }}
-      />
-      
-      {/* Capa semi-transparente para mejorar legibilidad del texto */}
-      {/* <div className="absolute inset-0 bg-black bg-opacity-80" /> */}
-      
-      {/* Estado normal - Muestra el título y subtítulo sobre la imagen */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-        <h2 className="text-xl font-bold text-center mb-2 text-white">{card.title}</h2>
-        <p className="text-sm text-center text-white">{card.subtitle}</p>
-      </div>
-
-      {/* Estado hover - Muestra información detallada */}
-      <div className="absolute inset-0 bg-azul opacity-0 group-hover:opacity-95 transition-opacity duration-300 p-6 flex flex-col justify-center z-20">
-        <h2 className="text-lg font-bold text-center mb-4 text-white">{card.title}</h2>
-        
-        {/* Mostrar características en hover */}
-        <ul className="space-y-2 text-sm text-white">
-          {card.features.map((feature, i) => (
-            <li key={i} className="text-left">
-              <span className="font-semibold">{feature.title}:</span>{" "}
-              {feature.description}
-            </li>
-          ))}
-        </ul>
+    <div className="container mx-auto px-4 py-12">
+      <h2 className="text-3xl font-bold text-center mb-10">Materiales de Impresión</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {materialCards.map((card, id) => (
+          <Cards
+            key={id}
+            title={card.title}
+            subtitle={card.subtitle}
+            features={card.features}
+            image={card.image}
+          />
+        ))}
       </div>
     </div>
-  ))}
-</div>
   );
-}
+};

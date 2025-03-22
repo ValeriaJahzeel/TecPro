@@ -4,7 +4,7 @@ import { QuienesSomos } from "./quienes_somos/page";
 import {NuestrosServicios} from "./servicios/page";
 import { ListoParaEmpezar } from "./listo_para_empezar/page";
 import { MaterialesImpresion } from "./materiales_impresion/page";
-import Contacto from "./nuestro_contacto/mapa";
+import Contacto from "./nuestro_contacto/page";
 import { Formulario } from "./formulario/page";
 
 export default function Home() {

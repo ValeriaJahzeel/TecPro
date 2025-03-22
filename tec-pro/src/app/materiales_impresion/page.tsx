@@ -1,6 +1,6 @@
 "use client"
 
-import Cards from "@/components/cards/page";
+import MaterialesCards from "@/components/cards/dictionary";
 
 export const MaterialesImpresion = () => {
     return (
@@ -8,7 +8,7 @@ export const MaterialesImpresion = () => {
             
             <h1 className="text-3xl font-bold pb-8">Materiales de impresión</h1>
 
-            <Cards></Cards>
+            <MaterialesCards/>
             
         </main>
     )

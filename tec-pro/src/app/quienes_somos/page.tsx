@@ -3,7 +3,7 @@
 export const QuienesSomos = () => {
     return (
         // Bueno aun falta modificar esto para que se vea como en el dissño jsjs
-        <div className="bg-gradient-to-b from-[#848C88] from-1% to-naranja to 80%... flex justify-center grid grid-cols-2 p-12 text-black">
+        <div className="bg-white flex justify-center grid grid-cols-2 p-12 text-black">
             
             <div className="pr-8 pt-25">
 
