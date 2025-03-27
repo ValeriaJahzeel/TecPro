@@ -25,7 +25,7 @@ export default function Home() {
       
       <Contacto />
       
-      <Formulario />
+      {/* <Formulario /> */}
       
       <Footer />
     </main>

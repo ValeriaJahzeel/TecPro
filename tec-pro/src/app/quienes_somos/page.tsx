@@ -7,7 +7,7 @@ export const QuienesSomos = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col">
-            <h2 className="text-3xl md:text-4xl font-bold text-gris mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-20 after:h-1 after:bg-azul-medio after:mt-2 pb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-azul-oscuro mb-6 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-20 after:h-1 after:bg-azul-medio after:mt-2 pb-3">
               ¿Quiénes somos?
             </h2>
 

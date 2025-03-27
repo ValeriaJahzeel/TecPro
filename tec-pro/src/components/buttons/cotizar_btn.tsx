@@ -4,7 +4,7 @@ import Link from "next/link";
 export const BtnCotizar = () => {
   return (
     <Link 
-      href="#cotizaciones"
+      href="./formulario/"
       className="btn btn-primary"
     >
       Solicitar cotización

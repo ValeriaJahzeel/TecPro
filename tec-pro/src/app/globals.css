@@ -6,7 +6,7 @@
   /* Colors */
   --color-gris: #333333;
   --color-azul: #3498DB; 
-  --color-verde-oscuro: #00431f;
+  --color-verde-oscuro: #00652d;
   --color-verde-medio: #006930;
   --color-azul-oscuro: #001781;
   --color-azul-medio: #0026b3;
@@ -35,7 +35,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-sans), Roboto, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), var(--font-geist-mono), var(--font-roboto);
   scroll-behavior: smooth;
 }
 

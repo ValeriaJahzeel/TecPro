@@ -20,7 +20,7 @@ export default function MaterialesCards() {
           description: "Superficie lisa y brillante, ideal para detalles finos."
         }
       ],
-      image: "img_disenio3D.png"
+      image: "PLA.svg"
     },
     {
       title: "PETG",
@@ -39,7 +39,7 @@ export default function MaterialesCards() {
           description: "Soporta el calor y la intemperie, ideal para exteriores"
         }
       ],
-      image: "img_disenio3D.png"
+      image: "PETG.svg"
     },
     {
       title: "Nylon",
@@ -58,7 +58,7 @@ export default function MaterialesCards() {
           description: "Buena tolerancia al calor, aunque puede deformarse a temperaturas extremas."
         }
       ],
-      image: "img_disenio3D.png"
+      image: "NYLON.svg"
     },
     {
       title: "TPU",
@@ -77,7 +77,7 @@ export default function MaterialesCards() {
           description: "Soporta temperaturas moderadas, pero no calor extremo."
         }
       ],
-      image: "img_disenio3D.png"
+      image: "TPU.svg"
     },
     {
       title: "ASA",
@@ -96,7 +96,7 @@ export default function MaterialesCards() {
           description: "Fuerte, resistente a impactos y rígido."
         }
       ],
-      image: "img_disenio3D.png"
+      image: "ASA.svg"
     },
     {
       title: "ABS",
@@ -115,7 +115,7 @@ export default function MaterialesCards() {
           description: "Alta resistencia al impacto, rigidez y dureza."
         }
       ],
-      image: "img_disenio3D.png"
+      image: "ABS.svg"
     },
     {
       title: "Policarbonato",
@@ -140,7 +140,7 @@ export default function MaterialesCards() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold text-center mb-10">Materiales de Impresión</h2>
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {materialCards.map((card, id) => (
           <Cards

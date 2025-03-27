@@ -26,7 +26,7 @@ export const Cards = ({ title, subtitle, features, image }: MaterialCardProps) =
       />
       
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-70" />
+      <div className="absolute inset-0 bg-black bg-opacity-30" />
       
       {/* Default state - title and subtitle */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-10">
@@ -35,7 +35,7 @@ export const Cards = ({ title, subtitle, features, image }: MaterialCardProps) =
       </div>
 
       {/* Hover state - show detailed information */}
-      <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-95 transition-opacity duration-300 p-6 flex flex-col justify-center z-20">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-center z-20">
         <h2 className="text-xl font-bold text-center mb-4 text-white">{title}</h2>
         
         <ul className="space-y-3 text-sm text-white">

@@ -101,7 +101,6 @@ const ServiceCarousel = () => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
       
       {/* Main carousel container */}
       <div className="relative overflow-hidden rounded-2xl shadow-2xl">
@@ -118,7 +117,7 @@ const ServiceCarousel = () => {
               }`}
             >
               {/* Card Layout */}
-              <div className="flex flex-col md:flex-row items-center h-full bg-gradient-to-r from-blue-900 to-indigo-900">
+              <div className="flex flex-col md:flex-row items-center h-full bg-gradient-to-br from-blue-700 to-blue-800">
                 {/* Left side - Image */}
                 <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden">
                   <img 
@@ -140,7 +139,7 @@ const ServiceCarousel = () => {
                         </div>
                         {/* Feature text */}
                         <div>
-                          <span className="font-semibold text-yellow-300">{feature.title}</span>{" "}
+                          <span className="font-bold text-yellow-300">{feature.title}</span>{" "}
                           {feature.description}
                         </div>
                       </li>
@@ -155,7 +154,7 @@ const ServiceCarousel = () => {
         {/* Navigation arrows */}
         <button 
           onClick={prevSlide} 
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-3 hover:bg-opacity-70 focus:outline-none transition-all"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-0 text-white rounded-full p-3 hover:bg-opacity-10 focus:outline-none transition-all"
           aria-label="Previous slide"
         >
           <FiChevronLeft size={24} />
@@ -163,7 +162,7 @@ const ServiceCarousel = () => {
         
         <button 
           onClick={nextSlide} 
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-3 hover:bg-opacity-70 focus:outline-none transition-all"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-0 text-white rounded-full p-3 hover:bg-opacity-10 focus:outline-none transition-all"
           aria-label="Next slide"
         >
           <FiChevronRight size={24} />
