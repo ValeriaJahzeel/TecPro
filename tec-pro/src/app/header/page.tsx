@@ -76,7 +76,7 @@ const Header = () => {
             <li><Link href="#quienes-somos" className="hover:text-azul transition-colors py-2 block">¿Quiénes somos?</Link></li>
             <li><Link href="#servicios" className="hover:text-azul transition-colors py-2 block">Nuestros servicios</Link></li>
             <li><Link href="#materiales" className="hover:text-azul transition-colors py-2 block">Materiales</Link></li>
-            <li><Link href="#cotizaciones" className="hover:text-azul transition-colors py-2 block">Cotizaciones</Link></li>
+            <li><Link href="./app/formulario" className="hover:text-azul transition-colors py-2 block">Cotizaciones</Link></li>
             <li><Link href="#tienda" className="hover:text-azul transition-colors py-2 block">Tienda</Link></li>
             <li><Link href="#contacto" className="hover:text-azul transition-colors py-2 block">Contáctanos</Link></li>
           </ul>

@@ -5,7 +5,7 @@ import { NuestrosServicios } from "./servicios/page";
 import { MaterialesImpresion } from "./materiales_impresion/page";
 import ListoParaEmpezar from "./listo_para_empezar/page";
 import Contacto from "./nuestro_contacto/page";
-import { Formulario } from "./formulario/page";
+import { Formulario } from "./formulario";
 import Footer from "./footer/psge";
 
 export default function Home() {

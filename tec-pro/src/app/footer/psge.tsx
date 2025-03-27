@@ -91,8 +91,8 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-center md:text-left text-yellow-300">Contacto</h3>
             <ul className="space-y-3 text-center md:text-left">
               <li className="flex items-center justify-center md:justify-start gap-2">
-                <IconMapPin size={20} className="text-white" />
-                <span className="text-white">CDMX, México</span>
+                <IconMapPin size={30} className="text-white" />
+                <span className="text-white">Gaviotas 21, Granjas Modernas, Gustavo A. Madero, 07460 Ciudad de México, CDMX</span>
               </li>
               <li className="flex items-center justify-center md:justify-start gap-2">
                 <IconPhone size={20} className="text-white" />
