@@ -5,7 +5,7 @@ interface ContactCardProps {
   title: string;
   subtitle: string;
   color: string;
-  Icon: IconType | any; // Allow both react-icons and tabler-icons
+  Icon: IconType; 
 }
 
 export const ContactCard = ({ title, subtitle, color, Icon }: ContactCardProps) => {

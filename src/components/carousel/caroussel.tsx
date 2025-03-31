@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Button } from '../buttons/button';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import Image from 'next/image';
 
 interface Feature {
   title: string;
@@ -120,7 +120,7 @@ const ServiceCarousel = () => {
               <div className="flex flex-col md:flex-row items-center h-full bg-gradient-to-br from-blue-700 to-blue-800">
                 {/* Left side - Image */}
                 <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden">
-                  <img 
+                  <Image 
                     src={slide.image || "/api/placeholder/400/320"} 
                     alt={slide.title}
                     className="w-full h-full object-cover"

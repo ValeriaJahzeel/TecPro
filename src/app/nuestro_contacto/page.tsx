@@ -6,8 +6,6 @@ import { IconBrandFacebook,
     IconBrandInstagram,
     IconBrandTiktok,
     IconBrandYoutube,
-    IconBrandWhatsapp,
-    IconMail
    } from '@tabler/icons-react';
 
 export default function Contacto() {

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { BtnCotizar } from "@/components/buttons/cotizar_btn";
 import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 

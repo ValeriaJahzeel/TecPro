@@ -1,9 +1,11 @@
+import Image from "next/image"
+
 export default function InicioSesion() {
     return (
      
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img
+            <Image
               alt="Your Company"
               src="logo.svg"
               className="mx-auto h-30 w-auto"
