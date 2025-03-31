@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BtnCotizar } from "@/components/buttons/cotizar_btn";
 import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
-export const Principal = () => {
+const Principal = () => {
   return (
     <section id="principal" className="bg-white py-2 md:py-4 lg:py-6 px-4 md:px-12">
       <div className="container mx-auto">

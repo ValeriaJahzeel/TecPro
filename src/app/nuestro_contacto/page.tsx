@@ -8,7 +8,7 @@ import { IconBrandFacebook,
     IconBrandYoutube,
    } from '@tabler/icons-react';
 
-export default function Contacto() {
+const Contacto = () => {
   const defaultCenter = {
     lat: 19.47899904755389, 
     lng: -99.10572499113043  
@@ -62,3 +62,5 @@ export default function Contacto() {
     </div>
   );
 }
+
+export default Contacto;

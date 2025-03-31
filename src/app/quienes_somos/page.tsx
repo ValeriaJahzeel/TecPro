@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-export const QuienesSomos = () => {
+const QuienesSomos = () => {
   return (
     <section id="quienes-somos" className="bg-white py-16 px-4 md:px-12">
       <div className="container mx-auto">

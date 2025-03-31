@@ -1,7 +1,7 @@
 "use client"
 import Carousel from "@/components/carousel/caroussel";
 
-export const NuestrosServicios = () => {
+const NuestrosServicios = () => {
     return (
         <main id="servicios" className="bg-white  p-12">
             
@@ -17,6 +17,6 @@ export const NuestrosServicios = () => {
 
         </main>
     )
- 
  }
  
+ export default NuestrosServicios;
