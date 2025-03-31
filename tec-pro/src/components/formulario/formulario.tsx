@@ -59,11 +59,11 @@ const FileUploadStep = ({
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
-        <FiUpload className="text-blue-500 text-5xl mb-4" />
+        <FiUpload className="text-azul-medio text-5xl mb-4" />
         <p className="text-lg mb-2 font-medium">Arrastrar y soltar archivo</p>
         <p className="text-sm text-gray-500 mb-4">o</p>
         <button 
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          className="bg-azul-medio hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           onClick={() => fileInputRef.current?.click()}
         >
           Cargar archivo
@@ -82,12 +82,12 @@ const FileUploadStep = ({
       {/* Lista de archivos cargados */}
       {uploadedFiles.length > 0 && (
         <div className="bg-gray-50 rounded-lg p-4">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800">Archivos cargados</h3>
+          <h3 className="text-xl font-semibold mb-4 text-azul-medio">Archivos cargados</h3>
           <div className="max-h-60 overflow-y-auto">
             {uploadedFiles.map((file) => (
-              <div key={file.id} className="flex items-center justify-between p-3 border-b hover:bg-gray-100 rounded-md transition-colors">
+              <div key={file.id} className="flex items-center justify-between p-3 border-b rounded-md transition-colors">
                 <div className="flex items-center">
-                  <FiFile className="mr-2 text-blue-500" />
+                  <FiFile className="mr-2 text-azul-medio" />
                   <span className="text-gray-700">{file.name}</span>
                 </div>
                 <button 
@@ -117,15 +117,15 @@ const ModelDetailsStep = ({
 }) => {
   return (
     <div className="bg-white rounded-lg p-8 shadow-lg">
-      <h2 className="text-xl font-semibold mb-6 text-gray-800">Servicio(s) que requiere:</h2>
+      <h2 className="text-xl font-semibold mb-6 text-azul-medio">Servicio(s) que requiere:</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         {/* Servicio de Impresión 3D */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('impresion3d') ? 'border-blue-500 bg-blue-50' : 'border-gray-300'}`}
+          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('impresion3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('impresion3d')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 bg-blue-100 rounded-full">
+          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
             <FiPrinter className={`w-6 h-6 ${formData.services.includes('impresion3d') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
           <span className="font-medium">Impresión 3D</span>
@@ -133,10 +133,10 @@ const ModelDetailsStep = ({
         
         {/* Servicio de Diseño 3D */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('diseno3d') ? 'border-blue-500 bg-blue-50' : 'border-gray-300'}`}
+          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('diseno3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('diseno3d')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 bg-blue-100 rounded-full">
+          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
             <FiEdit className={`w-6 h-6 ${formData.services.includes('diseno3d') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
           <span className="font-medium">Diseño 3D</span>
@@ -144,10 +144,10 @@ const ModelDetailsStep = ({
         
         {/* Servicio de Escaneo de objetos */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('escaneo') ? 'border-blue-500 bg-blue-50' : 'border-gray-300'}`}
+          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('escaneo') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('escaneo')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 bg-blue-100 rounded-full">
+          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
             <FiBox className={`w-6 h-6 ${formData.services.includes('escaneo') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
           <span className="font-medium">Escaneo de objetos</span>
@@ -157,18 +157,21 @@ const ModelDetailsStep = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
         {/* Selección de Material */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Material</label>
+          <label className="block text-azul-medio font-medium mb-2">Material</label>
           <select 
             className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
             name="material"
             value={formData.material}
             onChange={handleInputChange}
           >
-            <option value="PLC (Ácido poliláctico)">PLC (Ácido poliláctico)</option>
-            <option value="ABS">ABS</option>
-            <option value="PETG">PETG</option>
-            <option value="TPU">TPU (Flexible)</option>
+            <option value="PLA">PLA (Ácido Poliláctico)</option>
+            <option value="PETG">PETG (Tereftalato de polietileno glicol)</option>
             <option value="Nylon">Nylon</option>
+            <option value="TPU">TPU (Polímero termoplástico de ureano)</option>
+            <option value="ASA">ASA (Acrilonitrilo Estireno Acrilato)</option>
+            <option value="ABS">ABS (Acrilonitrilo Butadieno Estireno)</option>
+            <option value="PC">Policarbonato </option>
+
           </select>
         </div>
         
@@ -184,7 +187,6 @@ const ModelDetailsStep = ({
             <option value="Baja">Baja</option>
             <option value="Media">Media</option>
             <option value="Alta">Alta</option>
-            <option value="Ultra">Ultra</option>
           </select>
         </div>
         
@@ -217,7 +219,7 @@ const ContactDetailsStep = ({
   return (
     <div className="bg-white rounded-lg p-8 shadow-lg">
       <p className="text-lg mb-8 text-gray-700">
-        Necesitamos de tu información para mandarte tu cotización, por favor llena los siguientes campos
+        Necesitamos de tu información para mandarte tu cotización, por favor llena los siguientes campos:
       </p>
       
       <div className="space-y-6">
@@ -230,7 +232,7 @@ const ContactDetailsStep = ({
             value={formData.name}
             onChange={handleInputChange}
             className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-            placeholder="Escribe tu nombre completo"
+            placeholder="Ej. Maria Sanchez Rodriguez"
           />
         </div>
         
@@ -282,20 +284,20 @@ const ContactDetailsStep = ({
 const ConfirmationScreen = () => {
   return (
     <div className="text-center py-10 bg-white rounded-lg p-8 shadow-lg">
-      <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="w-20 h-20 bg-green-700 rounded-full flex items-center justify-center mx-auto mb-6">
         <FiCheck className="text-white text-3xl" />
       </div>
       
-      <h2 className="text-2xl font-bold mb-3 text-gray-800">
+      <h2 className="text-2xl font-bold mb-3 text-azul-medio">
         ¡Listo! Se ha enviado tu solicitud de cotización
       </h2>
       
-      <p className="text-lg mb-8 text-gray-700">
+      <p className="text-lg mb-8 text-azul-medio">
         En breve te contactaremos al teléfono y/o correo que proporcionaste.
       </p>
       
       <button 
-        className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+        className="mt-6 bg-azul-medio hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
         onClick={() => window.location.href = '/'}
       >
         Volver al inicio
@@ -319,9 +321,9 @@ const StepIndicator = ({ currentStep, totalSteps }: { currentStep: number; total
           <div className="flex flex-col items-center">
             <div className={`rounded-full w-12 h-12 flex items-center justify-center border-2 transition-all duration-300 ${
               currentStep > index + 1 
-                ? 'bg-green-500 border-green-500 text-white' 
+                ? 'bg-green-700 border-green-700 text-white' 
                 : currentStep === index + 1 
-                  ? 'bg-blue-500 border-blue-500 text-white' 
+                  ? 'bg-azul-medio border-azul-medio text-white' 
                   : 'bg-white border-gray-300 text-gray-400'
             }`}>
               {currentStep > index + 1 
@@ -336,7 +338,7 @@ const StepIndicator = ({ currentStep, totalSteps }: { currentStep: number; total
           
           {index < totalSteps - 1 && (
             <div className={`flex-1 h-1 mx-4 rounded-full ${
-              currentStep > index + 1 ? 'bg-green-500' : 'bg-gray-300'
+              currentStep > index + 1 ? 'bg-green-700' : 'bg-gray-300'
             }`}></div>
           )}
         </React.Fragment>
@@ -490,9 +492,9 @@ const QuoteForm = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-4">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-4xl font-bold text-center mb-10 text-gray-800">Cotiza tu modelo 3D</h1>
+        <h1 className="text-4xl font-bold text-center mb-10 text-azul-oscuro">Cotiza tu modelo 3D</h1>
         
         {/* Indicador de pasos */}
         {!isSubmitted && <StepIndicator currentStep={currentStep} totalSteps={3} />}
@@ -553,7 +555,7 @@ const QuoteForm = () => {
               </button>
             ) : (
               <button 
-                className={`flex items-center px-6 py-3 rounded-lg text-white transition-colors ${validateForm() ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}`}
+                className={`flex items-center px-6 py-3 rounded-lg text-white transition-colors ${validateForm() ? 'bg-green-700 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}`}
                 onClick={handleSubmit}
                 disabled={!validateForm()}
               >
