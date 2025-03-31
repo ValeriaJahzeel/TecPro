@@ -2,7 +2,7 @@
 import { BtnCotizar } from "@/components/buttons/cotizar_btn";
 import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
-export const ListoParaEmpezar = () => {
+const ListoParaEmpezar = () => {
   return (
     <section id="listo-para-empezar" className="bg-gradient-to-br from-blue-700 to-blue-800 text-white py-16 px-4 md:px-12">
       <div className="container mx-auto text-center max-w-3xl">
