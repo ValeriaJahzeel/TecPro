@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useEffect } from "react";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -13,54 +14,91 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
+// Update the mobile menu to be more responsive and accessible
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('nav')) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Close menu when pressing ESC key
+
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [isOpen]);
 
   return (
     <header className="w-full shadow-sm">
-      {/* Top Bar */}
+      {/* Top Bar - Improved for smaller screens */}
       <div className="bg-gradient-to-br from-blue-700 to-blue-800 text-white py-2 px-4 md:px-6 lg:px-8">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-6 text-sm">
-            <a href="mailto:tecprocdmx@gmail.com" className="flex items-center gap-2 hover:text-azul transition-colors">
-              <IconMail size={18} />
-              <span>tecprocdmx@gmail.com</span>
+        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+          <div className="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm">
+            <a href="mailto:tecprocdmx@gmail.com" className="flex items-center gap-1 sm:gap-2 hover:text-yellow-300 transition-colors">
+              <IconMail size={16} className="flex-shrink-0" />
+              <span className="hidden xs:inline">tecprocdmx@gmail.com</span>
             </a>
-            <a href="https://wa.me/2462514265/?text=¡Hola! Quiero más información de sus servicios por favor." className="flex items-center gap-2 hover:text-whatsapp transition-colors">
-              <IconBrandWhatsapp size={18} />
+            <a href="https://wa.me/2462514265/?text=¡Hola! Quiero más información de sus servicios por favor." className="flex items-center gap-1 sm:gap-2 hover:text-whatsapp transition-colors">
+              <IconBrandWhatsapp size={16} className="flex-shrink-0" />
               <span>246 251 4265</span>
             </a>
           </div>
           
-          <div className="flex items-center gap-6 text-sm">
-            <a href="https://www.facebook.com/tecpro.impresion3d?locale=es_LA" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandFacebook size={18} />
-              <span className="hidden sm:inline">TecPro Impresión 3D</span>
+          <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm mt-2 sm:mt-0">
+            <a href="https://www.facebook.com/tecpro.impresion3d?locale=es_LA" className="flex items-center gap-1 hover:text-yellow-300 transition-colors">
+              <IconBrandFacebook size={16} className="flex-shrink-0" />
+              <span className="hidden sm:inline">Facebook</span>
             </a>
-            <a href="https://www.instagram.com/tecpro_impresion3d/" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandInstagram size={18} />
-              <span className="hidden sm:inline">tecpro_impresion3d</span>
+            <a href="https://www.instagram.com/tecpro_impresion3d/" className="flex items-center gap-1 hover:text-yellow-300 transition-colors">
+              <IconBrandInstagram size={16} className="flex-shrink-0" />
+              <span className="hidden sm:inline">Instagram</span>
             </a>
-            <a href="https://www.tiktok.com/@tecpro_impresion3d" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandTiktok size={18} />
-              <span className="hidden sm:inline">tecpro_impresion3d</span>
+            <a href="https://www.tiktok.com/@tecpro_impresion3d" className="flex items-center gap-1 hover:text-yellow-300 transition-colors">
+              <IconBrandTiktok size={16} className="flex-shrink-0" />
+              <span className="hidden sm:inline">TikTok</span>
             </a>
-            <a href="https://www.youtube.com/@tecpro203" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandYoutube size={18} />
-              <span className="hidden sm:inline">Tec Pro</span>
+            <a href="https://www.youtube.com/@tecpro203" className="flex items-center gap-1 hover:text-yellow-300 transition-colors">
+              <IconBrandYoutube size={16} className="flex-shrink-0" />
+              <span className="hidden sm:inline">YouTube</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Nav */}
-      <nav className="bg-white text-black">
-        <div className="container mx-auto px-8 md:px-12 lg:px-16 py-2 flex justify-between items-center">
-          {/* Logo */}
+      {/* Main Nav - Improved for better mobile experience */}
+      <nav className="bg-white text-black relative">
+        <div className="container mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-2 flex justify-between items-center">
+          {/* Logo - Adjusted size for mobile */}
           <Link href="/">
-            <div className="relative h-24 w-64 ml-8">
+            <div className="relative h-16 sm:h-20 md:h-24 w-32 sm:w-48 md:w-64 ml-0 sm:ml-4 md:ml-8">
               <Image 
                 src="/logo.svg" 
                 alt="TecPro Logo" 
@@ -72,41 +110,80 @@ const Header = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-4 lg:space-x-8 text-black mr-8">
-            <li><Link href="#quienes-somos" className="hover:text-azul transition-colors py-2 block">¿Quiénes somos?</Link></li>
-            <li><Link href="#servicios" className="hover:text-azul transition-colors py-2 block">Nuestros servicios</Link></li>
-            <li><Link href="#materiales" className="hover:text-azul transition-colors py-2 block">Materiales</Link></li>
-            <li><Link href="/formulario" className="hover:text-azul transition-colors py-2 block">Cotizaciones</Link></li>
-            <li><Link href="#tienda" className="hover:text-azul transition-colors py-2 block">Tienda</Link></li>
-            <li><Link href="#contacto" className="hover:text-azul transition-colors py-2 block">Contáctanos</Link></li>
+          <ul className="hidden md:flex space-x-2 lg:space-x-6 xl:space-x-8 text-black mr-0 sm:mr-4 md:mr-8 text-sm lg:text-base">
+            <li><Link href="#quienes-somos" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">¿Quiénes somos?</Link></li>
+            <li><Link href="#servicios" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Servicios</Link></li>
+            <li><Link href="#materiales" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Materiales</Link></li>
+            <li><Link href="/formulario" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Cotizaciones</Link></li>
+            <li><Link href="#tienda" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Tienda</Link></li>
+            <li><Link href="#contacto" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Contacto</Link></li>
           </ul>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 focus:outline-none"
+            className="md:hidden p-2 focus:outline-none z-20"
             onClick={toggleMenu}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <IconX size={24} /> : <IconMenu2 size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden animate-fadeIn">
-            <ul className="bg-white text-black flex flex-col py-4">
-              <li><Link href="#quienes-somos" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>¿Quiénes somos?</Link></li>
-              <li><Link href="#servicios" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>Nuestros servicios</Link></li>
-              <li><Link href="#materiales" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>Materiales</Link></li>
-              <li><Link href="#cotizaciones" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>Cotizaciones</Link></li>
-              <li><Link href="#tienda" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>Tienda</Link></li>
-              <li><Link href="#contacto" className="px-8 py-3 block hover:bg-azul-medio" onClick={toggleMenu}>Contáctanos</Link></li>
-            </ul>
+        {/* Mobile Menu - Improved with smooth transitions and better positioning */}
+        <div 
+          className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-10 transition-opacity duration-300 ${
+            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={toggleMenu}
+        ></div>
+        
+        <div 
+          className={`md:hidden fixed top-0 right-0 w-64 h-full bg-white transform transition-transform duration-300 ease-in-out z-10 shadow-xl overflow-y-auto ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="p-4 border-b border-gray-200">
+            <button
+              className="p-2 float-right focus:outline-none"
+              onClick={toggleMenu}
+              aria-label="Cerrar menú"
+            >
+              <IconX size={24} />
+            </button>
+            <div className="clear-both"></div>
           </div>
-        )}
+          <ul className="flex flex-col py-4">
+            <li><Link href="#quienes-somos" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>¿Quiénes somos?</Link></li>
+            <li><Link href="#servicios" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Nuestros servicios</Link></li>
+            <li><Link href="#materiales" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Materiales</Link></li>
+            <li><Link href="/formulario" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Cotizaciones</Link></li>
+            <li><Link href="#tienda" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Tienda</Link></li>
+            <li><Link href="#contacto" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Contáctanos</Link></li>
+          </ul>
+          
+          {/* Social media icons for mobile menu */}
+          <div className="border-t border-gray-200 p-4">
+            <div className="flex justify-around">
+              <a href="https://www.facebook.com/tecpro.impresion3d?locale=es_LA" aria-label="Facebook" className="text-azul-medio">
+                <IconBrandFacebook size={24} />
+              </a>
+              <a href="https://www.instagram.com/tecpro_impresion3d/" aria-label="Instagram" className="text-azul-medio">
+                <IconBrandInstagram size={24} />
+              </a>
+              <a href="https://www.tiktok.com/@tecpro_impresion3d" aria-label="TikTok" className="text-azul-medio">
+                <IconBrandTiktok size={24} />
+              </a>
+              <a href="https://www.youtube.com/@tecpro203" aria-label="YouTube" className="text-azul-medio">
+                <IconBrandYoutube size={24} />
+              </a>
+            </div>
+          </div>
+        </div>
       </nav>
     </header>
   );
 };
+
 
 export default Header;

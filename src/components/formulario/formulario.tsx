@@ -47,23 +47,23 @@ const FileUploadStep = ({
   fileInputRef: React.RefObject<HTMLInputElement>;
 }) => {
   return (
-    <div className="bg-white rounded-lg p-8 shadow-lg">
-      <p className="text-base mb-6 text-gray-700">
+    <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg">
+      <p className="text-sm sm:text-base mb-4 sm:mb-6 text-gray-700">
         Por favor cargue su diseño 3D en formato .STL .OBJ o .STEP, en caso de no contar con un diseño suba la imagen de 
         referencia con medidas (largo x alto x ancho) en formato PDF.
       </p>
       
       {/* Área de carga de archivos */}
       <div 
-        className="border-2 border-dashed border-gray-300 rounded-lg p-10 mb-6 flex flex-col items-center justify-center transition-all hover:border-blue-400 hover:bg-blue-50"
+        className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 md:p-10 mb-4 sm:mb-6 flex flex-col items-center justify-center transition-all hover:border-blue-400 hover:bg-blue-50"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
-        <FiUpload className="text-azul-medio text-5xl mb-4" />
-        <p className="text-lg mb-2 font-medium">Arrastrar y soltar archivo</p>
-        <p className="text-sm text-gray-500 mb-4">o</p>
+        <FiUpload className="text-azul-medio text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4" />
+        <p className="text-base sm:text-lg mb-1 sm:mb-2 font-medium text-center">Arrastrar y soltar archivo</p>
+        <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">o</p>
         <button 
-          className="bg-azul-medio hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          className="bg-azul-medio hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base"
           onClick={() => fileInputRef.current?.click()}
         >
           Cargar archivo
@@ -76,23 +76,23 @@ const FileUploadStep = ({
           accept=".stl,.obj,.step,.pdf"
           multiple
         />
-        <p className="text-gray-500 text-sm mt-4">.STL .OBJ .STEP o .PDF</p>
+        <p className="text-gray-500 text-xs sm:text-sm mt-3 sm:mt-4">.STL .OBJ .STEP o .PDF</p>
       </div>
       
       {/* Lista de archivos cargados */}
       {uploadedFiles.length > 0 && (
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h3 className="text-xl font-semibold mb-4 text-azul-medio">Archivos cargados</h3>
-          <div className="max-h-60 overflow-y-auto">
+        <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-azul-medio">Archivos cargados</h3>
+          <div className="max-h-40 sm:max-h-60 overflow-y-auto">
             {uploadedFiles.map((file) => (
-              <div key={file.id} className="flex items-center justify-between p-3 border-b rounded-md transition-colors">
-                <div className="flex items-center">
-                  <FiFile className="mr-2 text-azul-medio" />
-                  <span className="text-gray-700">{file.name}</span>
+              <div key={file.id} className="flex items-center justify-between p-2 sm:p-3 border-b rounded-md transition-colors">
+                <div className="flex items-center overflow-hidden">
+                  <FiFile className="mr-2 text-azul-medio flex-shrink-0" />
+                  <span className="text-gray-700 text-sm truncate">{file.name}</span>
                 </div>
                 <button 
                   onClick={() => removeFile(file.id)}
-                  className="text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-50 transition-colors"
+                  className="text-red-500 hover:text-red-700 p-1 sm:p-2 rounded-full hover:bg-red-50 transition-colors flex-shrink-0 ml-2"
                   aria-label="Eliminar archivo"
                 >
                   <FiTrash2 />
@@ -116,50 +116,50 @@ const ModelDetailsStep = ({
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
 }) => {
   return (
-    <div className="bg-white rounded-lg p-8 shadow-lg">
-      <h2 className="text-xl font-semibold mb-6 text-azul-medio">Servicio(s) que requiere:</h2>
+    <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg">
+      <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-azul-medio">Servicio(s) que requiere:</h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-10">
         {/* Servicio de Impresión 3D */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('impresion3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
+          className={`border rounded-lg p-3 sm:p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('impresion3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('impresion3d')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
-            <FiPrinter className={`w-6 h-6 ${formData.services.includes('impresion3d') ? 'text-blue-600' : 'text-gray-600'}`} />
+          <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3 rounded-full">
+            <FiPrinter className={`w-4 h-4 sm:w-6 sm:h-6 ${formData.services.includes('impresion3d') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
-          <span className="font-medium">Impresión 3D</span>
+          <span className="font-medium text-sm sm:text-base">Impresión 3D</span>
         </div>
         
         {/* Servicio de Diseño 3D */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('diseno3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
+          className={`border rounded-lg p-3 sm:p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('diseno3d') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('diseno3d')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
-            <FiEdit className={`w-6 h-6 ${formData.services.includes('diseno3d') ? 'text-blue-600' : 'text-gray-600'}`} />
+          <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3 rounded-full">
+            <FiEdit className={`w-4 h-4 sm:w-6 sm:h-6 ${formData.services.includes('diseno3d') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
-          <span className="font-medium">Diseño 3D</span>
+          <span className="font-medium text-sm sm:text-base">Diseño 3D</span>
         </div>
         
         {/* Servicio de Escaneo de objetos */}
         <div 
-          className={`border rounded-lg p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('escaneo') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
+          className={`border rounded-lg p-3 sm:p-6 flex items-center cursor-pointer transition-all duration-200 hover:shadow-md ${formData.services.includes('escaneo') ? 'border-azul-medio bg-blue-100' : 'border-gray-300'}`}
           onClick={() => handleServiceChange('escaneo')}
         >
-          <div className="flex items-center justify-center w-12 h-12 mr-3 rounded-full">
-            <FiBox className={`w-6 h-6 ${formData.services.includes('escaneo') ? 'text-blue-600' : 'text-gray-600'}`} />
+          <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3 rounded-full">
+            <FiBox className={`w-4 h-4 sm:w-6 sm:h-6 ${formData.services.includes('escaneo') ? 'text-blue-600' : 'text-gray-600'}`} />
           </div>
-          <span className="font-medium">Escaneo de objetos</span>
+          <span className="font-medium text-sm sm:text-base">Escaneo de objetos</span>
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-10">
         {/* Selección de Material */}
         <div>
-          <label className="block text-azul-medio font-medium mb-2">Material</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Material</label>
           <select 
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             name="material"
             value={formData.material}
             onChange={handleInputChange}
@@ -171,15 +171,14 @@ const ModelDetailsStep = ({
             <option value="ASA">ASA (Acrilonitrilo Estireno Acrilato)</option>
             <option value="ABS">ABS (Acrilonitrilo Butadieno Estireno)</option>
             <option value="PC">Policarbonato </option>
-
           </select>
         </div>
         
         {/* Selección de Calidad */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Calidad</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Calidad</label>
           <select 
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             name="quality"
             value={formData.quality}
             onChange={handleInputChange}
@@ -192,9 +191,9 @@ const ModelDetailsStep = ({
         
         {/* Selección de Nivel de resistencia */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Nivel de resistencia</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Nivel de resistencia</label>
           <select 
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             name="resistanceLevel"
             value={formData.resistanceLevel}
             onChange={handleInputChange}
@@ -217,62 +216,62 @@ const ContactDetailsStep = ({
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
 }) => {
   return (
-    <div className="bg-white rounded-lg p-8 shadow-lg">
-      <p className="text-lg mb-8 text-gray-700">
+    <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg">
+      <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-700">
         Necesitamos de tu información para mandarte tu cotización, por favor llena los siguientes campos:
       </p>
       
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {/* Campo Nombre */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Nombre</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Nombre</label>
           <input 
             type="text" 
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             placeholder="Ej. Maria Sanchez Rodriguez"
           />
         </div>
         
         {/* Campo Teléfono */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Teléfono</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Teléfono</label>
           <input 
             type="tel" 
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             placeholder="Ej. 5512345678"
           />
         </div>
         
         {/* Campo Correo electrónico */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">Correo electrónico</label>
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">Correo electrónico</label>
           <input 
             type="email" 
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             placeholder="Ej. correo@ejemplo.com"
           />
         </div>
         
         {/* Campo Información adicional */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label className="block text-gray-700 font-medium mb-1 sm:mb-2 text-sm sm:text-base">
             ¿Tienes alguna duda o especificación adicional? Escríbela (opcional)
           </label>
           <textarea 
             name="additionalInfo"
             value={formData.additionalInfo}
             onChange={handleInputChange}
-            rows={5}
-            className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            rows={4}
+            className="w-full border border-gray-300 rounded-lg py-2 sm:py-3 px-3 sm:px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm sm:text-base"
             placeholder="Escribe tus dudas o especificaciones adicionales"
           ></textarea>
         </div>
@@ -283,21 +282,21 @@ const ContactDetailsStep = ({
 
 const ConfirmationScreen = () => {
   return (
-    <div className="text-center py-10 bg-white rounded-lg p-8 shadow-lg">
-      <div className="w-20 h-20 bg-green-700 rounded-full flex items-center justify-center mx-auto mb-6">
-        <FiCheck className="text-white text-3xl" />
+    <div className="text-center py-6 sm:py-10 bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-700 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+        <FiCheck className="text-white text-2xl sm:text-3xl" />
       </div>
       
-      <h2 className="text-2xl font-bold mb-3 text-azul-medio">
+      <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-azul-medio">
         ¡Listo! Se ha enviado tu solicitud de cotización
       </h2>
       
-      <p className="text-lg mb-8 text-azul-medio">
+      <p className="text-base sm:text-lg mb-6 sm:mb-8 text-azul-medio">
         En breve te contactaremos al teléfono y/o correo que proporcionaste.
       </p>
       
       <button 
-        className="mt-6 bg-azul-medio hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
+        className="mt-4 sm:mt-6 bg-azul-medio hover:bg-blue-700 text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors duration-200 text-sm sm:text-base"
         onClick={() => window.location.href = '/'}
       >
         Volver al inicio
@@ -309,17 +308,17 @@ const ConfirmationScreen = () => {
 // Step indicator component
 const StepIndicator = ({ currentStep, totalSteps }: { currentStep: number; totalSteps: number }) => {
   const steps = [
-    { title: "Carga de archivo", description: "Sube tus archivos" },
-    { title: "Detalles", description: "Especifica servicios y materiales" },
-    { title: "Contacto", description: "Información para contactarte" }
+    { title: "Archivo", description: "Sube tus archivos" },
+    { title: "Detalles", description: "Especificaciones" },
+    { title: "Contacto", description: "Información" }
   ];
 
   return (
-    <div className="flex items-center justify-between mb-12">
+    <div className="flex items-center justify-between mb-8 sm:mb-12">
       {steps.map((step, index) => (
         <React.Fragment key={index}>
           <div className="flex flex-col items-center">
-            <div className={`rounded-full w-12 h-12 flex items-center justify-center border-2 transition-all duration-300 ${
+            <div className={`rounded-full w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center border-2 transition-all duration-300 ${
               currentStep > index + 1 
                 ? 'bg-green-700 border-green-700 text-white' 
                 : currentStep === index + 1 
@@ -327,17 +326,17 @@ const StepIndicator = ({ currentStep, totalSteps }: { currentStep: number; total
                   : 'bg-white border-gray-300 text-gray-400'
             }`}>
               {currentStep > index + 1 
-                ? <FiCheck className="text-white text-xl" /> 
+                ? <FiCheck className="text-white text-base sm:text-xl" /> 
                 : index + 1}
             </div>
-            <div className="text-center mt-2">
-              <div className={`font-semibold ${currentStep === index + 1 ? 'text-blue-600' : 'text-gray-700'}`}>{step.title}</div>
-              <div className="text-sm text-gray-500">{step.description}</div>
+            <div className="text-center mt-1 sm:mt-2">
+              <div className={`font-semibold text-xs sm:text-sm ${currentStep === index + 1 ? 'text-blue-600' : 'text-gray-700'}`}>{step.title}</div>
+              <div className="text-xs text-gray-500 hidden xs:block">{step.description}</div>
             </div>
           </div>
           
           {index < totalSteps - 1 && (
-            <div className={`flex-1 h-1 mx-4 rounded-full ${
+            <div className={`flex-1 h-0.5 sm:h-1 mx-1 sm:mx-4 rounded-full ${
               currentStep > index + 1 ? 'bg-green-700' : 'bg-gray-300'
             }`}></div>
           )}
@@ -493,8 +492,8 @@ const QuoteForm = () => {
   
   return (
     <div className="min-h-screen bg-gray-50 py-4">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-4xl font-bold text-center mb-10 text-azul-oscuro">Cotiza tu modelo 3D</h1>
+      <div className="container mx-auto px-4 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-10 text-azul-oscuro">Cotiza tu modelo 3D</h1>
         
         {/* Indicador de pasos */}
         {!isSubmitted && <StepIndicator currentStep={currentStep} totalSteps={3} />}
@@ -533,13 +532,13 @@ const QuoteForm = () => {
         
         {/* Botones de navegación */}
         {!isSubmitted && (
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between mt-6 sm:mt-10">
             {currentStep > 1 ? (
               <button 
-                className="flex items-center px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 transition-colors"
+                className="flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 transition-colors text-sm sm:text-base"
                 onClick={goToPreviousStep}
               >
-                <FiArrowLeft className="mr-2" /> Anterior
+                <FiArrowLeft className="mr-1 sm:mr-2" /> <span className="hidden xs:inline">Anterior</span>
               </button>
             ) : (
               <div></div> /* Espacio vacío para mantener el layout */
@@ -547,19 +546,19 @@ const QuoteForm = () => {
             
             {currentStep < 3 ? (
               <button 
-                className={`flex items-center px-6 py-3 rounded-lg text-white transition-colors ${validateForm() ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
+                className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white transition-colors text-sm sm:text-base ${validateForm() ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
                 onClick={goToNextStep}
                 disabled={!validateForm()}
               >
-                Siguiente <FiArrowRight className="ml-2" />
+                <span className="hidden xs:inline">Siguiente</span> <FiArrowRight className="ml-1 sm:ml-2" />
               </button>
             ) : (
               <button 
-                className={`flex items-center px-6 py-3 rounded-lg text-white transition-colors ${validateForm() ? 'bg-green-700 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}`}
+                className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white transition-colors text-sm sm:text-base ${validateForm() ? 'bg-green-700 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}`}
                 onClick={handleSubmit}
                 disabled={!validateForm()}
               >
-                Finalizar <FiCheck className="ml-2" />
+                <span className="hidden xs:inline">Finalizar</span> <FiCheck className="ml-1 sm:ml-2" />
               </button>
             )}
           </div>
@@ -568,5 +567,6 @@ const QuoteForm = () => {
     </div>
   );
 };
+
 
 export default QuoteForm;

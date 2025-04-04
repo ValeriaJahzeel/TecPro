@@ -18,7 +18,7 @@ export const Button = ({
   fullWidth = false
 }: ButtonProps) => {
   // Base styles
-  const baseStyles = "flex items-center justify-center text-center rounded-full transition-all duration-300 py-3 px-6";
+  const baseStyles = "flex items-center justify-center text-center rounded-full transition-all duration-300 py-2 sm:py-3 px-4 sm:px-6 text-sm sm:text-base";
   
   // Variant-specific styles
   const variantStyles = {

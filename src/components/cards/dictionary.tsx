@@ -139,9 +139,8 @@ export default function MaterialesCards() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div className="container mx-auto px-4 py-8 sm:py-12">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
         {materialCards.map((card, id) => (
           <Cards
             key={id}
