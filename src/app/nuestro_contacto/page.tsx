@@ -10,8 +10,9 @@ import { IconBrandFacebook,
 
 const Contacto = () => {
   const defaultCenter = {
-    lat: 19.47899904755389, 
-    lng: -99.10572499113043  
+  
+    lat: 19.478901658349493,
+    lng: -99.10593465239316  
   };
 
   const markers = [
