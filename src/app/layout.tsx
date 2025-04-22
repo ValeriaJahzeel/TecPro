@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "TecPro | Servicios de Impresión 3D",
   description: "TecPro ofrece servicios de impresión 3D de alta calidad para proyectos industriales, artísticos y arquitectónicos",
   keywords: ["impresión 3D", "diseño 3D", "prototipos", "maquetas", "TecPro"],
+  icons: {
+    icon: '/logo.svg',
+    apple: '/logo.svg',
+    shortcut: '/logo.svg'
+  },
 };
 
 export default function RootLayout({
