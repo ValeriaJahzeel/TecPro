@@ -346,6 +346,54 @@ const StepIndicator = ({ currentStep, totalSteps }: { currentStep: number; total
   );
 };
 
+// Función para enviar el correo al administrador
+const sendEmailToAdmin = async (formData: FormData, uploadedFiles: UploadedFile[]) => {
+  try {
+    // Formatear la información de los servicios seleccionados
+    const servicesString = formData.services.map(service => {
+      switch(service) {
+        case 'impresion3d': return 'Impresión 3D';
+        case 'diseno3d': return 'Diseño 3D';
+        case 'escaneo': return 'Escaneo de objetos';
+        default: return service;
+      }
+    }).join(', ');
+    
+    // Preparar los archivos para ser enviados
+    const formDataToSend = new FormData();
+    
+    // Añadir datos del formulario
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('services', servicesString);
+    formDataToSend.append('material', formData.material);
+    formDataToSend.append('quality', formData.quality);
+    formDataToSend.append('resistanceLevel', formData.resistanceLevel);
+    formDataToSend.append('additionalInfo', formData.additionalInfo || 'No proporcionada');
+    
+    // Añadir archivos
+    uploadedFiles.forEach((file, index) => {
+      formDataToSend.append(`file${index}`, file.file);
+    });
+    
+    // Enviar los datos y archivos a la API
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      body: formDataToSend,
+    });
+    
+    if (!response.ok) {
+      throw new Error('Error al enviar el correo');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error al enviar el correo:', error);
+    throw error;
+  }
+};
+
 // Main component
 const QuoteForm = () => {
   // Estado para manejar el paso actual y los datos del formulario
@@ -353,15 +401,17 @@ const QuoteForm = () => {
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [formData, setFormData] = useState<FormData>({
     services: [],
-    material: 'PLC (Ácido poliláctico)',
-    quality: 'Baja',
-    resistanceLevel: 'Baja',
+    material: 'PLA',
+    quality: 'Media',
+    resistanceLevel: 'Media',
     name: '',
     phone: '',
     email: '',
     additionalInfo: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   
   // Referencia para el input de archivo
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -477,17 +527,26 @@ const QuoteForm = () => {
   };
   
   // Función para manejar el envío del formulario
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!validateForm()) return;
     
-    // Aquí iría la lógica para enviar los datos al backend
-    console.log("Datos del formulario:", formData);
-    console.log("Archivos:", uploadedFiles);
+    setIsSubmitting(true);
+    setError(null);
     
-    // Simular envío exitoso
-    setIsSubmitted(true);
-    // Scroll to top smoothly
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      // Enviar el correo al administrador
+      await sendEmailToAdmin(formData, uploadedFiles);
+      
+      // Si todo sale bien, mostrar la pantalla de confirmación
+      setIsSubmitted(true);
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error('Error al procesar el formulario:', error);
+      setError('Hubo un problema al enviar tu solicitud. Por favor, intenta de nuevo más tarde.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -497,6 +556,14 @@ const QuoteForm = () => {
         
         {/* Indicador de pasos */}
         {!isSubmitted && <StepIndicator currentStep={currentStep} totalSteps={3} />}
+        
+        {/* Mensajes de error */}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+            <strong className="font-bold">Error: </strong>
+            <span className="block sm:inline">{error}</span>
+          </div>
+        )}
         
         {/* Contenido según el paso actual */}
         {currentStep === 1 && !isSubmitted && (
@@ -537,6 +604,7 @@ const QuoteForm = () => {
               <button 
                 className="flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 transition-colors text-sm sm:text-base"
                 onClick={goToPreviousStep}
+                disabled={isSubmitting}
               >
                 <FiArrowLeft className="mr-1 sm:mr-2" /> <span className="hidden xs:inline">Anterior</span>
               </button>
@@ -548,7 +616,7 @@ const QuoteForm = () => {
               <button 
                 className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white transition-colors text-sm sm:text-base ${validateForm() ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
                 onClick={goToNextStep}
-                disabled={!validateForm()}
+                disabled={!validateForm() || isSubmitting}
               >
                 <span className="hidden xs:inline">Siguiente</span> <FiArrowRight className="ml-1 sm:ml-2" />
               </button>
@@ -556,9 +624,21 @@ const QuoteForm = () => {
               <button 
                 className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white transition-colors text-sm sm:text-base ${validateForm() ? 'bg-green-700 hover:bg-green-600' : 'bg-gray-400 cursor-not-allowed'}`}
                 onClick={handleSubmit}
-                disabled={!validateForm()}
+                disabled={!validateForm() || isSubmitting}
               >
-                <span className="hidden xs:inline">Finalizar</span> <FiCheck className="ml-1 sm:ml-2" />
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span className="hidden xs:inline">Enviando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="hidden xs:inline">Finalizar</span> <FiCheck className="ml-1 sm:ml-2" />
+                  </>
+                )}
               </button>
             )}
           </div>
