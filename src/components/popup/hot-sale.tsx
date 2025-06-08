@@ -19,7 +19,7 @@ const PopupHotSale = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("¡Hola! Me interesa conocer más sobre la promoción Hot Sale. ¿Podrían darme más información?");
+    const message = encodeURIComponent("¡Hola! Me interesa conocer más sobre las cotizaciones. ¿Podrían darme más información?");
     window.open(`https://wa.me/2462514265?text=${message}`, '_blank');
     closePopup();
   };
@@ -50,7 +50,7 @@ const PopupHotSale = () => {
           {/* Imagen del Hot Sale */}
           <div className="relative w-full cursor-pointer" onClick={handleWhatsAppClick}>
             <Image
-              src="/hot-sale.svg"
+              src="/popup.png"
               alt="Hot Sale TecPro - Descuentos hasta 50% OFF"
               width={600}
               height={800}
