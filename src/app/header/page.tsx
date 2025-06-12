@@ -14,13 +14,11 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-// Update the mobile menu to be more responsive and accessible
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
