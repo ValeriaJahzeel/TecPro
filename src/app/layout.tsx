@@ -4,6 +4,7 @@ import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google'
 // @ts-ignore
 import TagManager from 'react-gtm-module'
+import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,12 +41,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    const tagManagerArgs = {
+      gtmId: 'GTM-M985PLB5',
+    };
+    
+    TagManager.initialize(tagManagerArgs);
+  },
+  []);
  
-  const tagManagerArgs = {
-    gtmId: '<ID do GTM tipo (GTM-M985PLB5)>'
-  }
-  
-  TagManager.initialize(tagManagerArgs)
+ 
   
   return (
     <html lang="es" className="scroll-smooth">
