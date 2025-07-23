@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import TagManagerProvider from "@/components/metricas/tag_manager";
-import GoogleAnalythicsProvider from "@/components/metricas/analythisc";
+import TagManagerScript from "@/components/metricas/tag_manager";
+import GoogleAnalytics from "@/components/metricas/analythisc";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,12 +40,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        <GoogleAnalytics />
+        <TagManagerScript />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased bg-fondo`}
       >
-        <TagManagerProvider/>
-        <GoogleAnalythicsProvider/>
-         {children}
+        {children}
       </body>
     </html>
   );

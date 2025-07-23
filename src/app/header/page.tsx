@@ -5,7 +5,6 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandTiktok,
-  IconBrandWhatsapp,
   IconBrandYoutube,
   IconMail,
   IconMenu2,

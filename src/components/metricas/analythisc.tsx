@@ -1,12 +1,12 @@
 "use client"
 
-import { useEffect } from "react"
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-export default function GoogleAnalythicsProvider() {
-  useEffect(() => {
-    {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
-  }, []);
+export default function GoogleAnalyticsProvider() {
+  // Only render the GoogleAnalytics component if GA ID exists
+  if (!process.env.NEXT_PUBLIC_GA_ID) {
+    return null;
+  }
 
-  return null;
+  return <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />;
 }
