@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import TagManager from 'react-gtm-module'
-import { useEffect } from "react";
+import TagManagerProvider from "@/components/metricas/tag_manager";
+import GoogleAnalythicsProvider from "@/components/metricas/analythisc";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +25,7 @@ const roboto = Geist_Mono({
 export const metadata: Metadata = {
   title: "TecPro | Servicios de Impresión 3D",
   description: "TecPro ofrece servicios de impresión 3D de alta calidad para proyectos industriales, artísticos y arquitectónicos",
-  keywords: ["impresión 3D", "diseño 3D", "prototipos", "maquetas", "TecPro"],
+  keywords: ["impresión 3D CDMX", "diseño 3D CDMX", "prototipos", "servicio de impresión 3D", "TecPro"],
   icons: {
     icon: '/logo.svg',
     apple: '/logo.svg',
@@ -40,24 +39,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    const tagManagerArgs = {
-      gtmId: 'GTM-M985PLB5',
-    };
-    
-    TagManager.initialize(tagManagerArgs);
-  },
-  []);
- 
-  
   return (
     <html lang="es" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased bg-fondo`}
       >
-        {children}
-        <GoogleAnalytics gaId="G-0KYTB5PE7L" /> 
-
+        <TagManagerProvider/>
+        <GoogleAnalythicsProvider/>
+         {children}
       </body>
     </html>
   );

@@ -22,13 +22,13 @@ const Principal = () => {
           </div>
 
           <div className="order-1 md:order-2 flex flex-col">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gris mb-2 sm:mb-4">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gris mb-2 sm:mb-4">
               Servicio de 
             </h1>
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold text-verde-medio mb-2 sm:mb-4">
               impresión 3D 
             </h1>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gris mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gris mb-4 sm:mb-6">
               a tu alcance
             </h1>
 

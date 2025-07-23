@@ -4,8 +4,8 @@
 
 :root {
   /* Colors */
-  --color-gris: #333333;
-  --color-azul: #3498DB; 
+  --color-gris: #374151;
+  --color-azul: #3B82F6; 
   --color-verde-oscuro: #00652d;
   --color-verde-medio: #006930;
   --color-azul-oscuro: #001781;
@@ -13,8 +13,9 @@
   --color-whatsapp: #25D366;
   --color-naranja: #E67E22;
   --color-amarillo-dorado: #F4A828;
-  --color-verde: #58B947;
+  --color-verde: #10B981;
   --color-rojo-anaranjado: #D35400;
+  --color-fondo: #FAFAFA;
 
   /* Fonts */
   --font-sans: var(--font-geist-sans);

@@ -4,7 +4,7 @@ import { BtnWhatsapp } from "@/components/buttons/whatsapp_btn";
 
 const ListoParaEmpezar = () => {
   return (
-    <section id="listo-para-empezar" className="bg-gradient-to-br from-blue-700 to-blue-800 text-white py-16 px-4 md:px-12">
+    <section id="listo-para-empezar" className="bg-azul-oscuro text-white py-16 px-4 md:px-12">
       <div className="container mx-auto text-center max-w-3xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           ¿Listo para empezar?

@@ -11,19 +11,19 @@ export default function ContactoCards() {
     {
       title: "Ubicación",
       subtitle: "Gaviotas 21, Granjas Modernas, Gustavo A. Madero, 07460 Ciudad de México, CDMX",
-      color: "bg-gradient-to-br from-blue-600 to-blue-800",
+      color: "bg-azul-oscuro",
       icon: IconMapPin
     },
     {
       title: "Correo electrónico",
       subtitle: "tecprocdmx@gmail.com",
-      color: "bg-gradient-to-br from-green-600 to-green-800",
+      color: "bg-verde-oscuro",
       icon: IconMail
     },
     {
       title: "Teléfono",
       subtitle: "246 251 4265",
-      color: "bg-gradient-to-br from-orange-500 to-orange-700",
+      color: "bg-amarillo-dorado",
       icon: IconPhone
     }
   ];

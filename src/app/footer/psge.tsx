@@ -11,7 +11,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-// 3. Improved Footer Component (src/app/footer/psge.tsx)
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

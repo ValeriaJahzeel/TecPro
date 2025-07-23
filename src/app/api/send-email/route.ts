@@ -35,14 +35,14 @@ export async function POST(request: Request) {
 
     // Configurar el transporte de correo electrónico
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Puedes cambiarlo según tu proveedor de correo
+      service: 'gmail', // puede ser cualquier tipo de correo
       auth: {
-        user: process.env.EMAIL_USER, // Configurar en .env
-        pass: process.env.EMAIL_PASS  // Configurar en .env
+        user: process.env.EMAIL_USER, 
+        pass: process.env.EMAIL_PASS  
       }
     });
 
-    // Crear el HTML del correo electrónico
+    // cuerpo del email
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9;">
         <h2 style="color: #0056b3; text-align: center; margin-bottom: 20px;">Nueva solicitud de cotización</h2>
@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     // Opciones del correo electrónico
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'tecprocdmx@gmail.com', // Correo del administrador
+      to: 'tecprocdmx@gmail.com', // Correo en donde se recibe
       subject: `Nueva solicitud de cotización de ${name}`,
       html: htmlContent,
       replyTo: email, // Para que puedan responder directamente al cliente

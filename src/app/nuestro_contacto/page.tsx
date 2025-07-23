@@ -32,28 +32,33 @@ const Contacto = () => {
         <ContactoCards/>
       </div>
 
-      <div className="flex items-center justify-center w-full gap-4 mb-6 mx-6">
-      <div className="flex items-center gap-6 text-sm">
-            <a href="https://www.facebook.com/tecpro.impresion3d?locale=es_LA" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandFacebook size={18} />
-              <span className="hidden sm:inline">TecPro Impresión 3D</span>
-            </a>
-            <a href="https://www.instagram.com/tecpro_impresion3d/" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandInstagram size={18} />
-              <span className="hidden sm:inline">tecpro_impresion3d</span>
-            </a>
-            <a href="https://www.tiktok.com/@tecpro_impresion3d" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandTiktok size={18} />
-              <span className="hidden sm:inline">tecpro_impresion3d</span>
-            </a>
-            <a href="https://www.youtube.com/@tecpro203" className="flex items-center gap-1 hover:text-azul transition-colors">
-              <IconBrandYoutube size={18} />
-              <span className="hidden sm:inline">Tec Pro</span>
-            </a>
-          </div>
+      <div className="flex flex-col items-center justify-center w-full gap-4 mb-6 mx-6">
+        <a href="https://www.facebook.com/tecpro.impresion3d?locale=es_LA" 
+           className="flex items-center gap-2 hover:text-azul transition-colors rounded-lg hover:bg-gray-100">
+          <IconBrandFacebook size={32} className="text-azul-oscuro" />
+          <span className="text-azul-oscuro text-lg">TecPro Impresión 3D</span>
+        </a>
+
+        <div className="flex items-center justify-center gap-4 text-sm">
+          <a href="https://www.instagram.com/tecpro_impresion3d/" 
+             className="flex items-center gap-2 hover:text-azul transition-colors p-2 rounded-lg hover:bg-gray-100">
+            <IconBrandInstagram size={24} className="text-azul-oscuro" />
+            <span className="hidden">tecpro_impresion3d</span>
+          </a>
+          <a href="https://www.tiktok.com/@tecpro_impresion3d" 
+             className="flex items-center gap-2 hover:text-azul transition-colors p-2 rounded-lg hover:bg-gray-100">
+            <IconBrandTiktok size={24} className="text-azul-oscuro" />
+            <span className="hidden">tecpro_impresion3d</span>
+          </a>
+          <a href="https://www.youtube.com/@tecpro203" 
+             className="flex items-center gap-2 hover:text-azul transition-colors p-2 rounded-lg hover:bg-gray-100">
+            <IconBrandYoutube size={24} className="text-azul-oscuro" />
+            <span className="hidden">Tec Pro</span>
+          </a>
+        </div>
       </div>
 
-      <div className="p-4 mb-4 mx-6">
+      <div className="mb-4 ">
         <MapComponent 
           center={defaultCenter}
           zoom={15}
