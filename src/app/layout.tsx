@@ -44,10 +44,16 @@ export default function RootLayout({
       >
         {children}
         {process.env.NEXT_PUBLIC_TAG_MANAGER_ID && (
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_TAG_MANAGER_ID} />
+          <>
+            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_TAG_MANAGER_ID} />
+            {console.log('Google Tag Manager initialized successfully')}
+          </>
         )}
         {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          <>
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+            {console.log('Google Analytics initialized successfully')}
+          </>
         )}
       </body>
     </html>
