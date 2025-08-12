@@ -5,7 +5,6 @@ import TagManager from "react-gtm-module"
 
 export default function TagManagerProvider() {
   useEffect(() => {
-    // Check if we are in browser environment
     if (typeof window !== 'undefined') {
       const tagManagerId = process.env.NEXT_PUBLIC_TAG_MANAGER_ID;
       
