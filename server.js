@@ -1,4 +1,4 @@
-// server.js
+
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -8,10 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Configuración de multer para almacenar los archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/');  // Asegúrate de que esta carpeta exista
+    cb(null, 'uploads/');  
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));  // Renombra para evitar conflictos
@@ -41,7 +40,7 @@ const upload = multer({
 // Endpoint para subir archivos
 app.post('/api/upload', upload.array('modelFiles'), (req, res) => {
   try {
-    // Los archivos se guardan automáticamente gracias a multer
+    // Los archivos se guardan automáticamente 
     const fileDetails = req.files.map(file => ({
       filename: file.filename,
       originalName: file.originalname,
@@ -63,7 +62,6 @@ app.post('/api/upload', upload.array('modelFiles'), (req, res) => {
   }
 });
 
-// Servir la aplicación React
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {

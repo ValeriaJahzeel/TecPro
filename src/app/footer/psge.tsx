@@ -19,7 +19,6 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-blue-700 to-blue-800 text-white pt-8 sm:pt-12 pb-6">
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8 sm:mb-12">
-          {/* Company Info */}
           <div>
             <div className="flex justify-center md:justify-start mb-4 sm:mb-6">
               <div className="relative h-10 sm:h-12 w-28 sm:w-36">
@@ -51,7 +50,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-center md:text-left text-yellow-300">Enlaces rápidos</h3>
             <ul className="space-y-2 text-center md:text-left">
@@ -88,7 +86,7 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Contact */}
+          {/* Contacto */}
           <div>
             <h3 className="text-lg font-bold mb-4 text-center md:text-left text-yellow-300">Contacto</h3>
             <ul className="space-y-3 text-center md:text-left">

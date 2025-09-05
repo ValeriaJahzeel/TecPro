@@ -8,7 +8,7 @@ const Formulario = () => {
     <main className="min-h-screen bg-white">
             <Header />
 
-      <div className="bg-white text-gris p-12 ">
+      <div className="bg-white text-gris p-4 ">
       <QuoteForm />
     </div>
     <Footer />

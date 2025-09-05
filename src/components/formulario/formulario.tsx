@@ -12,7 +12,6 @@ import {
   FiArrowRight
 } from 'react-icons/fi';
 
-// Types definitions
 type UploadedFile = {
   name: string;
   file: File;
@@ -30,7 +29,6 @@ type FormData = {
   additionalInfo: string;
 };
 
-// Step components
 const FileUploadStep = ({ 
   uploadedFiles, 
   handleFileUpload, 
@@ -47,7 +45,7 @@ const FileUploadStep = ({
   fileInputRef: React.RefObject<HTMLInputElement>;
 }) => {
   return (
-    <div className="bg-white rounded-lg p-4 sm:p-6 md:p-8 shadow-lg">
+    <div className="bg-white rounded-lg p-4 sm:p-4 md:p-4 shadow-lg">
       <p className="text-sm sm:text-base mb-4 sm:mb-6 text-gray-700">
         Por favor cargue su diseño 3D en formato .STL .OBJ o .STEP, en caso de no contar con un diseño suba la imagen de 
         referencia con medidas (largo x alto x ancho) en formato PDF.

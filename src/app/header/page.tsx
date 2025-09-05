@@ -121,7 +121,7 @@ const Header = () => {
             <li><Link href="#servicios" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Servicios</Link></li>
             <li><Link href="#materiales" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Materiales</Link></li>
             <li><Link href="/formulario" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Cotizaciones</Link></li>
-            <li><Link href="#tienda" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Tienda</Link></li>
+            <li><Link href="/tienda" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Tienda</Link></li>
             <li><Link href="#contacto" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Contacto</Link></li>
           </ul>
 
@@ -132,11 +132,11 @@ const Header = () => {
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
           >
-            {isOpen ? <IconX size={10} className="text-white"/> : <IconMenu2 size={24} className="text-white" />}
+            {isOpen ? <IconX size={10} className="text-white"/> : <IconMenu2 size={24} className="text-black" />}
           </button>
         </div>
 
-        {/* Mobile Menu - Improved with smooth transitions and better positioning */}
+        
         <div 
           className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-10 transition-opacity duration-300 ${
             isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -164,11 +164,11 @@ const Header = () => {
             <li><Link href="#servicios" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Nuestros servicios</Link></li>
             <li><Link href="#materiales" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Materiales</Link></li>
             <li><Link href="/formulario" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Cotizaciones</Link></li>
-            <li><Link href="#tienda" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Tienda</Link></li>
+            <li><Link href="/tienda" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Tienda</Link></li>
             <li><Link href="#contacto" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Contáctanos</Link></li>
           </ul>
           
-          {/* Social media icons for mobile menu */}
+         
           <div className="border-t border-gray-200 p-4">
             <div className="flex justify-around">
               <a href={limpiarURL("https://www.facebook.com/tecpro.impresion3d?locale=es_LA")} aria-label="Facebook" className="text-azul-medio">

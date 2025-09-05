@@ -8,7 +8,7 @@ import ListoParaEmpezar from "./listo_para_empezar/page";
 import Contacto from "./nuestro_contacto/page";
 import Footer from "./footer/psge";
 import {Btn_flotante} from "../components/buttons/flotante_whatsapp"
-import PopupHotSale from "../components/popup/hot-sale"; // Ajusta la ruta según donde guardes el componente
+import PopupHotSale from "../components/popup/hot-sale"; 
 
 export default function Home() {
   return (
