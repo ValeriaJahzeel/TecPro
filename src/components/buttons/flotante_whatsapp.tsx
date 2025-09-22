@@ -1,6 +1,11 @@
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 export const Btn_flotante = () =>  {
+
+  const trackingWhatsapp =() => {
+
+  }
+
   return (
     <div>
       
@@ -10,6 +15,7 @@ export const Btn_flotante = () =>  {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
+        onClick={trackingWhatsapp}
       >
         <IconBrandWhatsapp size={32} color="white" />
       </a>

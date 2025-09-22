@@ -117,12 +117,12 @@ const Header = () => {
 
           {/* Menu de escritorio */}
           <ul className="hidden md:flex space-x-2 lg:space-x-6 xl:space-x-8 text-black mr-0 sm:mr-4 md:mr-8 text-sm lg:text-base">
-            <li><Link href="#quienes-somos" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">¿Quiénes somos?</Link></li>
-            <li><Link href="#servicios" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Servicios</Link></li>
-            <li><Link href="#materiales" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Materiales</Link></li>
+            <li><Link href="/#quienes-somos" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">¿Quiénes somos?</Link></li>
+            <li><Link href="/#servicios" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Servicios</Link></li>
+            <li><Link href="/#materiales" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Materiales</Link></li>
             <li><Link href="/formulario" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Cotizaciones</Link></li>
             <li><Link href="/tienda" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Tienda</Link></li>
-            <li><Link href="#contacto" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Contacto</Link></li>
+            <li><Link href="/#contacto" className="hover:text-azul-medio transition-colors py-2 px-1 lg:px-2 block">Contacto</Link></li>
           </ul>
 
           {/* Menu movil */}
