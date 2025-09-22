@@ -392,9 +392,7 @@ const sendEmailToAdmin = async (formData: FormData, uploadedFiles: UploadedFile[
   }
 };
 
-// Main component
 const QuoteForm = () => {
-  // Estado para manejar el paso actual y los datos del formulario
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [formData, setFormData] = useState<FormData>({
