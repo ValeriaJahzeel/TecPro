@@ -160,12 +160,12 @@ const Header = () => {
             <div className="clear-both"></div>
           </div>
           <ul className="flex flex-col py-4">
-            <li><Link href="#quienes-somos" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>¿Quiénes somos?</Link></li>
-            <li><Link href="#servicios" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Nuestros servicios</Link></li>
-            <li><Link href="#materiales" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Materiales</Link></li>
+            <li><Link href="/#quienes-somos" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>¿Quiénes somos?</Link></li>
+            <li><Link href="/#servicios" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Nuestros servicios</Link></li>
+            <li><Link href="/#materiales" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Materiales</Link></li>
             <li><Link href="/formulario" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Cotizaciones</Link></li>
             <li><Link href="/tienda" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Tienda</Link></li>
-            <li><Link href="#contacto" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Contáctanos</Link></li>
+            <li><Link href="/#contacto" className="px-6 py-3 block hover:bg-blue-50 hover:text-azul-medio" onClick={toggleMenu}>Contáctanos</Link></li>
           </ul>
           
          
